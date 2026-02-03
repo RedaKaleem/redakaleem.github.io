@@ -34,13 +34,28 @@ function typeLine() {
   }
 }
 
+function proceedFromBoot() {
+  if (recruiterPage.classList.contains("active")) return;
+
+  document.querySelector(".boot").classList.add("hidden");
+  recruiterPage.classList.remove("hidden");
+  recruiterPage.classList.add("active");
+}
+// Desktop: Enter key
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !recruiterPage.classList.contains("active")) {
-    document.querySelector(".boot").classList.add("hidden");
-    recruiterPage.classList.remove("hidden");
-    recruiterPage.classList.add("active");
+  if (e.key === "Enter") {
+    proceedFromBoot();
   }
 });
+
+// Mobile: tap anywhere
+document.addEventListener(
+  "touchstart",
+  () => {
+    proceedFromBoot();
+  },
+  { once: true }
+);
 
 typeLine();
 
