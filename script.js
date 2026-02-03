@@ -6,7 +6,7 @@ const lines = [
   "> Recruiter detected.",
   "> Welcome.",
   "",
-  "> Press ENTER to continue..."
+  "> Press ENTER or TAP to continue..."
 ];
 
 const terminal = document.getElementById("terminalText");
@@ -48,14 +48,11 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Mobile: tap anywhere
-document.addEventListener(
-  "touchstart",
-  () => {
-    proceedFromBoot();
-  },
-  { once: true }
-);
+document.addEventListener("DOMContentLoaded", () => {
+  enterHint.addEventListener("click", proceedFromBoot);
+});
+
+
 
 typeLine();
 
