@@ -1,0 +1,437 @@
+ .site-bg {
+            position: fixed;
+            inset: 0;
+            background-color: #0e0b08;
+            background-image: url('greenbg.png'); /* save the provided image as "bg.png" next to index.html */
+            background-repeat: repeat;
+            background-size: 64px 64px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+:root {
+  --bg: #0b0e0c;
+  --fg: #a6ffb5;
+  --muted: #6fae7b;
+  --border: rgba(166, 255, 181, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.terminal {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 120px;
+}
+
+.boot {
+  min-height: 60vh;
+}
+
+pre {
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+#enterHint {
+  margin-top: 20px;
+  color: var(--muted);
+}
+
+#enterHint span {
+  color: var(--fg);
+}
+
+.hidden {
+  display: none;
+}
+
+/* PANELS */
+
+.panel {
+  border: 1px solid var(--border);
+  padding: 24px;
+  margin: 60px 0;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.panel h3 {
+  margin-top: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.entry .primary {
+  font-size: 18px;
+}
+
+.entry .secondary {
+  color: var(--muted);
+}
+
+.identity {
+  margin-top: 12px;
+}
+
+.snapshot ul {
+  list-style: none;
+  padding: 0;
+}
+
+.snapshot li {
+  margin-bottom: 8px;
+}
+
+.radar-placeholder {
+  margin-top: 24px;
+  padding: 40px;
+  border: 1px dashed var(--border);
+  text-align: center;
+  color: var(--muted);
+}
+
+.files span {
+  display: inline-block;
+  margin-right: 16px;
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+}
+
+.closing {
+  text-align: center;
+  color: var(--muted);
+}
+
+.radar-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.radar-box {
+  flex: 1;
+  text-align: center;
+}
+
+.radar-box h4 {
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--fg-muted);
+}
+
+svg {
+  width: 260px;
+  height: 260px;
+  background: rgba(5, 5, 5, 0.04);
+  border: 1px solid rgba(12, 12, 12, 0.2);
+  border-radius: 10px;
+}
+
+.panel.skills {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 60px;
+}
+/* allow wider layout for the skills panel */
+.terminal {
+    max-width: 1400px;
+}
+
+
+/* ensure radar labels aren't clipped and charts have breathing room */
+.radar-box {
+    padding: 18px;
+    flex: 0 0 360px;
+    min-width: 360px;
+    width: 360px;
+    height: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: crosshair;
+}
+
+.radar-box:hover {
+    transform: translateY(-4px);
+}
+
+/* make SVGs larger and allow labels/elements to render outside the viewBox */
+.radar-box svg,
+.radar-box .drawn-radar {
+    width: 320px;
+    height: 320px;
+    display: block;
+    margin: 0 auto;
+    overflow: visible;      /* important: prevents clipping of labels like "Architecture" */
+    box-sizing: content-box;
+}
+
+/* give the grid a little extra padding so left/right labels aren't cut by container edges */
+.radar-grid {
+    padding: 16px 12px 32px;
+    gap: 40px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* terminal-skills: 2x3 matrix layout for skill groups */
+.terminal-skills {
+    margin-top: 24px;
+    max-width: 100%;
+}
+
+.terminal-skills pre {
+    margin: 0;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 24px;
+    align-items: start;
+    white-space: pre-wrap; /* preserve line breaks inside groups */
+}
+
+/* each skill group becomes a card */
+.terminal-skills .skill-group {
+    display: block;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.25) inset;
+    white-space: pre-wrap;
+}
+
+/* visually emphasize the first line (group title) */
+.terminal-skills .skill-group::first-line {
+    color: var(--fg);
+    font-weight: 700;
+}
+
+/* small responsive fallback: single column on narrow viewports */
+@media (max-width: 880px) {
+    .terminal-skills pre {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== TERMINAL NAV BAR ===== */
+
+.terminal-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(11, 14, 12, 0.9);
+  border-bottom: 1px solid rgba(166, 255, 181, 0.2);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.terminal-nav .prompt {
+  color: var(--fg-muted);
+  margin-right: 8px;
+}
+
+.terminal-nav button {
+  background: none;
+  border: none;
+  color: var(--fg-primary);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.terminal-nav button:hover {
+  text-decoration: underline;
+}
+
+/* Push content down so nav doesn't overlap */
+.terminal {
+  padding-top: 70px;
+}
+
+.documents .doc-group {
+  margin-top: 24px;
+}
+
+.documents h4 {
+  font-size: 13px;
+  font-weight: normal;
+  color: var(--fg-muted);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.documents .files a {
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border: 1px solid rgba(166, 255, 181, 0.3);
+  color: var(--fg-primary);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.documents .files a:hover {
+  background: rgba(166, 255, 181, 0.08);
+}
+
+.panel.about .primary {
+  font-size: 1.05rem;
+  color: var(--fg-primary);
+  margin-bottom: 10px;
+}
+
+.panel.about .secondary {
+  color: var(--fg-muted);
+  line-height: 1.6;
+  max-width: 780px;
+}
+
+.about-education {
+  margin-top: 20px;
+}
+
+.about-education .label {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  margin-bottom: 8px;
+}
+
+.about-education ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-education li {
+  font-size: 0.95rem;
+  color: var(--fg-primary);
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text {
+  max-width: 780px;
+}
+
+.about-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  /* filter: grayscale(100%) contrast(1.1); */
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.panel.contact {
+  margin-bottom: 120px;
+}
+
+.contact-intro {
+  color: var(--fg-muted);
+  margin-bottom: 12px;
+}
+
+.contact-email {
+  font-family: monospace;
+  margin-bottom: 30px;
+}
+
+.contact-email span {
+  color: var(--muted);
+}
+
+.contact-email a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+}
+
+.contact-form textarea {
+  height: 100%;
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--muted);
+}
+
+.contact-form button {
+  grid-column: span 2;
+  margin-top: 12px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: monospace;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: rgba(166, 255, 181, 0.08);
+}
+
+/* Mobile fallback */
+@media (max-width: 900px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form button {
+    grid-column: 1;
+  }
+}
