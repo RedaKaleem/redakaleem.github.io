@@ -514,3 +514,82 @@ svg {
   }
 
 }
+
+/* ===========================
+   SKILL MATRIX — MOBILE FIX
+   Applies to ALL phones
+   =========================== */
+
+@media (max-width: 900px) {
+
+  /* Skills panel container */
+  .panel.skills {
+    padding: 16px;
+  }
+
+  .panel.skills h3 {
+    margin-bottom: 6px;
+  }
+
+  .panel.skills .hint {
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+  }
+
+  /* Radar grid: always vertical on phones */
+  .radar-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px;
+    align-items: center;
+  }
+
+  /* Individual radar card */
+  .radar-box {
+    width: 100%;
+    max-width: 320px;
+    padding: 8px;
+  }
+
+  .radar-box h4 {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  /* Radar SVG sizing — THIS is the key fix */
+  .radar-box svg {
+    width: 100% !important;
+    max-width: 260px;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Prevent accidental horizontal scroll */
+  .panel.skills * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Terminal skills text (optional but recommended) */
+  .terminal-skills {
+    margin-top: 16px;
+  }
+
+  .terminal-skills pre {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    overflow-x: auto;
+  }
+}
+
+/* ===========================
+   ABOUT ME — HIDE PHOTO ON PHONES
+   =========================== */
+
+@media (max-width: 480px) {
+  .about-photo {
+    display: none;
+  }
+}
