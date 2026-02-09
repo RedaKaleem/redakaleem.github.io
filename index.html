@@ -11,6 +11,8 @@
     
     <nav class="terminal-nav">
   <span class="prompt">reda@portfolio:~$</span>
+  <button data-target="about">About</button>
+  <button data-target="experience">Experience</button>
   <button data-target="skills">Skills</button>
   <button data-target="projects">Projects</button>
   <button data-target="documents">Documents</button>
@@ -36,11 +38,12 @@
 
       <div class="panel entry">
         <p class="primary">Recruiter access granted.</p>
-        <p class="secondary">You are viewing Reda_OS. <br> Owner: Reda Kaleem</p>
-        <p class="identity">Developer focused on building reliable systems and thoughtful interfaces.</p>
+        <p class="secondary">You are viewing Reda_OS. <br> Profile: Reda Kaleem</p>
+        <p class="identity">Software Engineer focused on applied AI, system design, and real-world problem solving.
+        </p>
       </div>
 
-<div class="panel about">
+<div class="panel about" id="about">
   <h3>About Me</h3>
 
   <div class="about-layout">
@@ -80,12 +83,73 @@
         <ul>
           <li>Focus: Software Development / AI Systems</li>
           <li>Domains: Engineering, Applied AI, LLM Systems</li>
-          <li>Availability: Open to opportunities</li>
+          <li>Status: Open to opportunities</li>
+          <li>> Roles: Software • AI • Research</li>
         </ul>
       </div>
+      
+<section class="panel experience" id="experience">
+  <h3>Experience</h3>
+
+  <div class="experience-frame">
+    <div class="experience-inner">
+
+      <div class="experience-path">
+
+        <!-- NODE 1 (RIGHT) -->
+        <div class="exp-node right">
+          <span class="dot"></span>
+          <div class="exp-card">
+            <h4>Python Developer — Lords Skill Academy</h4>
+            <span class="meta">Aug 2025 – Nov 2025</span>
+            <p>
+              Designed and developed Python-based projects using OpenCV and Pygame.
+              Supported program research, scheduling, and mentored students through
+              hands-on development.
+            </p>
+            <span class="stack">Python · OpenCV · Pygame</span>
+          </div>
+        </div>
+
+        <!-- NODE 2 (LEFT) -->
+        <div class="exp-node left">
+          <span class="dot"></span>
+          <div class="exp-card">
+            <h4>Data Science & ML Intern — Pantech</h4>
+            <span class="meta">Internship</span>
+            <p>
+              Worked on data preprocessing, exploratory analysis, and applied
+              machine learning workflows using real-world datasets.
+            </p>
+            <span class="stack">Python · Pandas · Machine Learning</span>
+          </div>
+        </div>
+
+        <!-- NODE 3 (RIGHT) -->
+        <div class="exp-node right">
+          <span class="dot"></span>
+          <div class="exp-card">
+            <h4>IBM SkillsBuild — AI & Data Fundamentals</h4>
+            <span class="meta">Certified</span>
+            <p>
+              Completed structured training in applied AI concepts, data fundamentals,
+              and real-world AI use cases.
+            </p>
+            <span class="stack">Artificial Intelligence · Data</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
 
       <div class="panel skills" id="skills">
-        <h3>Skills Matrix</h3>
+        <h3>Skills Matrix </h3>
+        <h3 class="primary">
+          Primary Stack: Python · Machine Learning · Computer Vision · Applied AI
+        </h3>
         <p class="hint">Capability overview — detailed breakdown follows in projects.</p>
 
         <!-- Radar charts will live here later -->
@@ -182,7 +246,7 @@
   <h3>Documents</h3>
 
   <div class="doc-group">
-    <h4>Core</h4>
+    <h4>Professional</h4>
     <div class="files">
       <a href="assets/Resume.pdf" target="_blank">Resume.pdf</a>
       <a href="assets/CV.pdf" target="_blank">CV.pdf</a>
@@ -190,7 +254,7 @@
   </div>
 
   <div class="doc-group">
-    <h4>Research</h4>
+    <h4>Publications & Research</h4>
     <div class="files">
       <a href="assets/JBITpaper1.pdf" target="_blank">Machine Learning-Based Text Classification for Online Content
 Moderation</a>
@@ -201,7 +265,7 @@ Signal Automation Using YOLOv8</a>
   </div>
 
   <div class="doc-group">
-    <h4>Certificates</h4>
+    <h4>Certifications</h4>
     <div class="files">
       <a href="assets/IBMDesign20260203-29-91zgzi.pdf" target="_blank">IBM SkillsBuild - Data Fundamentals.pdf</a>
       <a href="assets/IBMDesign20260203-30-gehwjx.pdf" target="_blank">IBM SkillsBuild - Artificial Intelligence.pdf</a>

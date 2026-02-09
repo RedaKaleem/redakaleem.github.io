@@ -634,3 +634,198 @@ svg {
     margin-top: 12px;
   }
 }
+
+/* EXPERIENCE PANEL */
+.panel.experience {
+  margin-top: 4rem;
+}
+
+/* OUTER SOLID FRAME */
+.experience-frame {
+  border: 1px solid rgba(120, 255, 170, 0.4);
+  padding: 2rem;
+}
+
+/* INNER DOTTED FRAME (like Skills Matrix) */
+.experience-inner {
+  border: 1px dashed rgba(120, 255, 170, 0.4);
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+/* MAIN PATH */
+.experience-path {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* CONTINUOUS VERTICAL LINE */
+.experience-path::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(120,255,170,0.6),
+    rgba(120,255,170,0.15)
+  );
+  transform: translateX(-50%);
+}
+
+/* NODE */
+.exp-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* DOT */
+.exp-node .dot {
+  width: 14px;
+  height: 14px;
+  background: #7affb2;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px rgba(120,255,170,0.8);
+}
+
+/* CARD */
+.exp-card {
+  max-width: 520px;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid rgba(120,255,170,0.5);
+  border-radius: 12px;
+  background: rgba(0,0,0,0.6);
+}
+
+/* LEFT / RIGHT POSITIONING */
+.exp-node.left {
+  justify-content: flex-end;
+}
+
+.exp-node.left .exp-card {
+  margin-right: calc(50% + 2.5rem);
+  text-align: left;
+}
+
+.exp-node.right {
+  justify-content: flex-start;
+}
+
+.exp-node.right .exp-card {
+  margin-left: calc(50% + 2.5rem);
+  text-align: left;
+}
+
+/* TEXT STYLES */
+.exp-card h4 {
+  margin: 0 0 0.3rem;
+  color: #9dffcc;
+}
+
+.exp-card .meta {
+  font-size: 0.85rem;
+  color: rgba(157,255,204,0.7);
+}
+
+.exp-card p {
+  margin: 0.7rem 0;
+  line-height: 1.5;
+}
+
+.exp-card .stack {
+  font-size: 0.8rem;
+  color: rgba(157,255,204,0.6);
+}
+
+
+
+/* ===========================
+   EXPERIENCE — MOBILE FIX (iPhone Safe)
+   =========================== */
+
+@media (max-width: 768px) {
+
+  /* Container tightening */
+  .panel.experience {
+    margin-top: 2rem;
+  }
+
+  .experience-frame {
+    padding: 1.2rem;
+  }
+
+  .experience-inner {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Kill center timeline logic */
+  .experience-path::before {
+    left: 8px;
+    width: 2px;
+    transform: none;
+  }
+
+  /* Stack nodes cleanly */
+  .experience-path {
+    gap: 2.5rem;
+  }
+
+  .exp-node {
+    padding-left: 2rem;
+    align-items: flex-start;
+  }
+
+  /* Dot alignment */
+  .exp-node .dot {
+    left: 8px;
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 0 8px rgba(120,255,170,0.6);
+  }
+
+  /* Cards become full-width */
+  .exp-card {
+    margin: 0 !important;
+    width: 100%;
+    max-width: none;
+    padding: 1rem 1.1rem;
+    border-radius: 10px;
+  }
+
+  /* Typography scaling */
+  .exp-card h4 {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .exp-card .meta {
+    font-size: 0.75rem;
+  }
+
+  .exp-card p {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    margin: 0.5rem 0;
+  }
+
+  .exp-card .stack {
+    font-size: 0.7rem;
+    opacity: 0.8;
+  }
+
+  /* Remove left/right logic entirely */
+  .exp-node.left,
+  .exp-node.right {
+    justify-content: flex-start;
+  }
+
+}
+
