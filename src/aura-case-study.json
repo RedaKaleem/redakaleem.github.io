@@ -1,0 +1,420 @@
+[
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "PROJECT 01  AI SYSTEMS AND COMPUTER VISION"
+  },
+  {
+    "type": "heading",
+    "level": "Title",
+    "text": "AuraOS"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "An AI operating layer for controlling a computer through hand gestures, voice commands, and context aware automation."
+  },
+  {
+    "type": "image",
+    "file": "image1.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "AuraOS interaction concept"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "8 gesture classes"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "4,744 training samples"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "3 interaction modes"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "55 Python modules"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "links",
+    "links": [
+      {
+        "text": "Explore the project repository",
+        "url": "https://github.com/RedaKaleem/AI-Operating-Layer"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "CONTEXT AND OUTCOME"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "Making Computer Control More Natural"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Context"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Computer interaction still depends heavily on a mouse and keyboard. AuraOS explores how gestures and speech can make common actions more direct, especially when users are presenting, moving, or working hands free."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Outcome"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "I built a modular Python prototype that combines gesture control, voice commands, intent routing, safety checks, and operating system automation in one interaction layer."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "heading",
+    "level": "Heading2",
+    "text": "How the System Works"
+  },
+  {
+    "type": "image",
+    "file": "image2.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "Voice and gesture input move through perception reasoning and guarded execution"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The challenge"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Combine several input methods without making the system feel fragmented or unpredictable."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The approach"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Use one shared loop for sensing, intent, planning, safety, and action with visible system feedback."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "KEY STAGES"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "From Input to Action"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "1. Capture"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "A custom recording pipeline collected 4,744 samples across eight gestures."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "2. Recognize"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "OpenCV and MediaPipe convert camera input into landmarks and classified gestures."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "3. Interpret"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Voice and gesture signals are routed through intent detection, planning, and safety checks."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "4. Execute"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Platform specific modules translate approved intent into cursor, application, browser, and system actions."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "image",
+    "file": "image3.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "The gesture dataset is relatively balanced across all eight classes"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "FINAL DESIGN AND IMPACT"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "One Layer Four Visible Surfaces"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "The final prototype uses a dashboard, hand tracking view, voice mode, and AI brain view to make sensing and reasoning visible. Familiar mappings such as pointing, pinching, two finger scrolling, and waving reduce the learning curve."
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "image",
+            "file": "image4.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Dashboard"
+          }
+        ],
+        [
+          {
+            "type": "image",
+            "file": "image5.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Gesture control"
+          }
+        ],
+        [
+          {
+            "type": "image",
+            "file": "image6.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Voice mode"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "heading",
+    "level": "Heading2",
+    "text": "Impact"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "4 roadmap items complete"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "96% reported gesture accuracy"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "6 next capabilities planned"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "The prototype proves that gesture input, speech, AI planning, and desktop automation can work as one modular system. The next step is formal user testing and reproducible benchmarking for accuracy, latency, and false activations."
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "LEARNING AND NEXT STEPS"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "What the Prototype Taught Me"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Learning"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Multimodal interaction needs clear system states. Users must know when AuraOS is listening processing or acting."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Learning"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Safety is part of the experience. Actions need permission boundaries confirmations and a reliable way to cancel or undo."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Next step"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Test five core tasks with users and document where gestures or voice fail."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Next step"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Measure per gesture accuracy, command latency, false activations, and recovery rate."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "AuraOS established the interaction model and technical foundation. The next phase is to test whether it feels understandable, reliable, and useful outside a controlled demo."
+  },
+  {
+    "type": "links",
+    "links": [
+      {
+        "text": "View GitHub repository",
+        "url": "https://github.com/RedaKaleem/AI-Operating-Layer"
+      },
+      {
+        "text": "View product website",
+        "url": "https://ai-operating-layer-interface.vercel.app/"
+      }
+    ]
+  }
+]

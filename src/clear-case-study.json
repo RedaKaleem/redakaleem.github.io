@@ -1,0 +1,360 @@
+[
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "PROJECT 02  AI SYSTEMS AND SMART MOBILITY"
+  },
+  {
+    "type": "heading",
+    "level": "Title",
+    "text": "ClearPath AI"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "A vision based traffic signal system that gives emergency vehicles temporary priority at an intersection."
+  },
+  {
+    "type": "image",
+    "file": "image1.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "Four traffic feeds running simultaneously in the ClearPath AI prototype"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "1,519annotated images"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "4camera feeds"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "50training epochs"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "640pixel input"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "links",
+    "links": [
+      {
+        "text": "Explore the project repository",
+        "url": "https://github.com/RedaKaleem/ClearPath-AI"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "CONTEXT AND OUTCOME"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "Reducing Delay at the Intersection"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Context"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Static traffic signals cannot respond when an ambulance is trapped in congestion. ClearPath AI explores whether roadside cameras can identify an emergency vehicle and create a temporary green corridor."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Outcome"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "I developed a research prototype that connects camera feeds, YOLOv8 detection, emergency classification, and signal control logic in one real time decision loop."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "heading",
+    "level": "Heading2",
+    "text": "How the System Works"
+  },
+  {
+    "type": "image",
+    "file": "image2.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "Detection triggers a temporary override before the signal returns to normal timing"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The challenge"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Prioritize emergency vehicles without requiring special hardware inside the vehicle."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The approach"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Use existing roadside video as the input and isolate vision, decision, and signal control as separate stages."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "KEY STAGES"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "From Camera Feed to Green Corridor"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "1  Train"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "A custom ambulance dataset provides 1,519 images annotated in YOLOv8 format."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "2  Monitor"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The prototype opens four video feeds to represent separate junctions."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "3  Detect"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Each frame is passed to an emergency vehicle detector."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "4  Control"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The decision logic can prioritize the detected route and restore normal operation afterward."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "image",
+            "file": "image3.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Training configuration"
+          }
+        ],
+        [
+          {
+            "type": "image",
+            "file": "image4.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Implementation structure"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "FINAL DESIGN AND IMPACT"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "One Decision Across Four Junctions"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "The working prototype monitors four junction feeds in parallel. The runtime output shows emergency detections, normal operation, and high traffic states that extend green duration."
+  },
+  {
+    "type": "image",
+    "file": "image5.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "Runtime output showing per junction detection and signal decisions"
+  },
+  {
+    "type": "heading",
+    "level": "Heading2",
+    "text": "Impact"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "4junction feeds"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "1priority route"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "0special vehicle hardware"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "The prototype establishes the technical path from video detection to signal priority. It does not yet provide measured response time savings, detection accuracy, or validation with a physical traffic controller."
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "LEARNING AND NEXT STEPS"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "What the Prototype Taught Me"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Learning"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "A safety critical concept needs measurable confidence and a fallback path when the detector is uncertain."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Next step"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Benchmark detection accuracy and end to end latency across weather lighting and traffic conditions."
+          }
+        ]
+      ]
+    ]
+  }
+]

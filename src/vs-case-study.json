@@ -1,0 +1,352 @@
+[
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "PROJECT 04  COMPUTER VISION AND GAME INTERACTION"
+  },
+  {
+    "type": "heading",
+    "level": "Title",
+    "text": "Virtual Steering"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "A camera based controller that turns hand movement into steering input for a driving game."
+  },
+  {
+    "type": "image",
+    "file": "image1.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "MediaPipe hand landmarks running in the working prototype"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "21hand landmarks"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "4keyboard outputs"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "2hands for steering"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "9.1 secrecorded demo"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "links",
+    "links": [
+      {
+        "text": "Explore the virtual assistance repository",
+        "url": "https://github.com/RedaKaleem/virtual-assitance"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "CONTEXT AND OUTCOME"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "Replacing a Physical Controller with Hand Movement"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Context"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Driving games normally depend on a keyboard or controller. This project tests whether a webcam and hand tracking can create a more physical steering interaction without additional hardware."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Outcome"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "I built a Python prototype that tracks both wrists, calculates the angle between them, and converts the result into W A S D keyboard input for straight left right and reverse movement."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "heading",
+    "level": "Heading2",
+    "text": "How the System Works"
+  },
+  {
+    "type": "image",
+    "file": "image2.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "Camera frames become hand geometry direction states and keyboard input"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The challenge"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Create a control gesture that feels understandable while avoiding a separate trained gesture model."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The approach"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Treat the line between two wrists as a virtual steering wheel and use its slope to choose direction."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "KEY STAGES"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "From Wrist Coordinates to Game Input"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "1  Detect"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "MediaPipe finds the hand skeleton and exposes wrist coordinates in each frame."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "2  Measure"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The controller calculates a midpoint slope and steering geometry from both wrists."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "3  Classify"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Tilt thresholds distinguish left right and straight states. One detected hand maps to reverse."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "4  Control"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Windows input structures press and release W A S D scan codes for the game."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "image",
+            "file": "image3.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Steering geometry"
+          }
+        ],
+        [
+          {
+            "type": "image",
+            "file": "image4.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Keyboard input implementation"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "FINAL DESIGN AND IMPACT"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "A Webcam as the Steering Wheel"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "The working demo combines the game view and live hand tracking on one laptop. The user moves both hands as a wheel while the controller sends directional key input in the background."
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "image",
+            "file": "image5.jpg"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Muted demo frame"
+          }
+        ],
+        [
+          {
+            "type": "image",
+            "file": "image6.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Verified control states"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "heading",
+    "level": "Heading2",
+    "text": "Impact"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "The prototype demonstrates a low-cost, vision-based control method using only a webcam. It does not yet include measured latency, accuracy, comfort, or cross-platform support."
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "LEARNING AND NEXT STEPS"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "What the Prototype Taught Me"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Learning"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "A simple geometric rule can create a convincing interaction quickly, but fixed thresholds may feel unstable across camera positions and body sizes."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Next step"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Calibrate the neutral pose, smooth wrist coordinates, measure input latency, and test longer play sessions for comfort."
+          }
+        ]
+      ]
+    ]
+  }
+]

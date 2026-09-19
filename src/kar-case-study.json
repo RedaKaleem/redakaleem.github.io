@@ -1,0 +1,360 @@
+[
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "PROJECT 03  CONVERSATIONAL AI AND VOICE INTERACTION"
+  },
+  {
+    "type": "heading",
+    "level": "Title",
+    "text": "Sael"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "A voice first AI companion that listens, recognizes simple commands, adapts its tone to mood cues, and speaks its response."
+  },
+  {
+    "type": "image",
+    "file": "image1.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "Working prototype recognizing speech and generating spoken output"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "5tone states"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "2direct commands"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "5Python modules"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "1local AI model"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "links",
+    "links": [
+      {
+        "text": "Explore the KAR repository",
+        "url": "https://github.com/RedaKaleem/KAR"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "CONTEXT AND OUTCOME"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "Giving a Voice Assistant a Consistent Character"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Context"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Most voice assistants treat every request the same way. Sael explores how voice input, a stable personality prompt, and simple mood cues can make responses feel more continuous and appropriate."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Outcome"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "I built a working Python prototype that listens through the microphone, transcribes speech, routes commands, generates local AI responses, and plays them back as spoken audio."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "heading",
+    "level": "Heading2",
+    "text": "How the System Works"
+  },
+  {
+    "type": "image",
+    "file": "image2.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "A complete voice loop with separate input reasoning routing and output modules"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The challenge"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Make voice interaction feel responsive and personal without hiding recognition failures."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The approach"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Separate listening, command routing, AI generation, and speech output so each part can be tested independently."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "KEY STAGES"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "From Speech to Characterful Response"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "1  Listen"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "The microphone captures speech and Google Speech Recognition converts it to text."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "2  Route"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Open and search requests trigger direct computer actions instead of the language model."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "3  Shape tone"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Keyword groups assign tired sad happy angry or default context to the prompt."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "4  Respond"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Ollama runs the OpenHermes model locally and gTTS turns the reply into audio."
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "image",
+            "file": "image3.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Tone routing logic"
+          }
+        ],
+        [
+          {
+            "type": "image",
+            "file": "image4.png"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Listening and error state"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "FINAL DESIGN AND IMPACT"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "A Small Modular Voice Loop"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "The prototype exposes its state in the console: listening, recognized speech, recognition failure, and spoken response. This makes the voice loop easy to test while the interaction model is still evolving."
+  },
+  {
+    "type": "image",
+    "file": "image5.png"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "Frame from the 106 second working prototype recording"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "5tone states"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "2direct actions"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "106 secrecorded demo"
+          }
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "heading",
+    "level": "Heading2",
+    "text": "Impact"
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "Sael demonstrates a complete local conversational loop with practical computer actions and visible error handling. Long term memory, relationship continuity, and trained emotion recognition remain research goals rather than finished features."
+  },
+  {
+    "type": "paragraph",
+    "level": "",
+    "text": "LEARNING AND NEXT STEPS"
+  },
+  {
+    "type": "heading",
+    "level": "Heading1",
+    "text": "What the Prototype Taught Me"
+  },
+  {
+    "type": "grid",
+    "rows": [
+      [
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Learning"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Personality needs consistent rules, but mood keywords alone cannot capture emotional context reliably."
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Next step"
+          },
+          {
+            "type": "paragraph",
+            "level": "",
+            "text": "Add structured conversation memory, test recognition latency, and replace keyword mood routing with a validated classifier."
+          }
+        ]
+      ]
+    ]
+  }
+]

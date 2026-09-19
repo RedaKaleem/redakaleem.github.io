@@ -50,3 +50,23 @@
 - Initial pass: blocked before comparison because browser-rendered evidence could not be captured.
 
 final result: blocked
+
+## Featured Works folder-card update
+
+- Source: user screenshot `Screenshot 1448-04-07 at 10.40.29 PM.png`, displayed at 518 × 322.
+- Scope: folder tabs, alternating cream/black frames, landscape covers, centered captions.
+- Implementation screenshot / viewport: unavailable; connected browser list is empty.
+- Visual comparison and interactive checks: blocked; no rendered evidence available.
+- Existing project cover placeholders remain; final project artwork is not supplied.
+- Validation: production build passed.
+- final result: blocked
+
+## Case Studies folder interaction
+
+- Source: user-provided screenshot `Screenshot 1448-04-07 at 10.40.35 PM.png`.
+- Implementation: dedicated Case Studies heading; four stacked folders; native details/summary expansion; project overview, approach, implementation notes and repository link inside each folder.
+- Content: drafted from existing portfolio and CV information; no invented measured outcomes.
+- Responsive rules: two-column folder fronts and detail content on desktop; single-column on phones.
+- Production build and git diff whitespace checks passed.
+- Browser discovery returned no connected browsers. Rendered screenshots, visual comparison, and live keyboard/click checks remain unavailable.
+- final result: blocked
