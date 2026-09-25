@@ -115,14 +115,51 @@ const featuredProjects = [
     summary: "An analysis of women’s safety trends through large-scale Twitter data mining.",
     href: "https://github.com/RedaKaleem/Technical-Evaluation-of-Women-s-Safety-Trends-Through-Large-Scale-Twitter-Data-Mining-and-Analysis",
   },
+  {
+    title: "WSC-Healthcare Initiative",
+    cover: "https://wsc-healthcare-gm9h.vercel.app/wsc-Photoroom.png",
+    kind: "HEALTHCARE AI · ENTERPRISE SYSTEMS",
+    summary: "An enterprise healthcare platform story for hospitals, ministries, payers and life-sciences teams, bringing AI, FHIR/HL7 interoperability, diagnostics and smart hospital operations into one credible digital experience.",
+    href: "https://wsc-healthcare-gm9h.vercel.app/",
+  },
 ];
 
 const designProjects = [
-  { title: "Bizzapt", type: "BRAND IDENTITY · DIGITAL", label: "BRAND SYSTEM", tone: "design-yellow" },
-  { title: "Poster Studies", type: "TYPOGRAPHY · LAYOUT", label: "POSTER SERIES", tone: "design-pink" },
-  { title: "Interface Notes", type: "UI · VISUAL SYSTEMS", label: "INTERFACE STUDY", tone: "design-mint" },
-  { title: "Marks & Symbols", type: "LOGO · EXPERIMENTS", label: "IDENTITY SKETCHES", tone: "design-blue" },
+  { title: "BIZZAPT", type: "BRAND SYSTEM · DIGITAL", label: "BRAND / SOCIAL / WEB", tone: "yellow", description: "Building the visual language of my own technology company — from identity and colour systems to social media, company documents and digital experiences." },
+  { title: "MEDICORE", type: "HEALTHCARE IDENTITY · PRODUCT", label: "IDENTITY / PRODUCT", tone: "pink", description: "An exploration of how healthcare can feel warm, human and contemporary without defaulting to the usual blue-and-green visual language." },
+  { title: "WSC", type: "CORPORATE COMMUNICATION · EVENT", label: "CORPORATE / EVENT", tone: "blue", description: "Visual communication created for corporate presentations, event screens, service storytelling and exhibition experiences." },
+  { title: "MAISON SALE", type: "EDITORIAL · DIGITAL", label: "EDITORIAL / CAMPAIGN", tone: "mint", description: "Editorial and digital visuals created around auctions, vintage fashion and luxury-focused content for a Saudi brand." },
 ];
+
+const designPrinciples = [
+  ["Hierarchy first.", "What should someone notice first, second and third? Good design should guide the eye before decorating the page."],
+  ["Colour needs a reason.", "I use colour to create contrast, emotion, recognition and structure — not just because a palette looks good."],
+  ["Consistency creates identity.", "Typography, spacing, imagery and colour become much stronger when they behave like a system instead of individual decisions."],
+  ["Function still matters.", "Whether I’m designing a screen, presentation or brand asset, the visual should help communicate the idea — never fight it."],
+];
+
+function VisualProject({ project, index }) {
+  const dialog = useRef(null);
+  return <article className={`visual-project visual-${project.tone}`}>
+    <div className="visual-project-meta"><span>0{index + 1}</span><span>{project.type}</span></div>
+    <button className="visual-art" onClick={() => dialog.current.showModal()} aria-label={`Explore ${project.title} visuals`}>
+      <span className="visual-art-label">{project.label}</span>
+      <span className="visual-art-type" aria-hidden="true">{project.title === "MAISON SALE" ? <>MAISON<br /><em>SALE</em></> : project.title}</span>
+      <span className="visual-art-shapes" aria-hidden="true"><i /><i /><i /></span>
+      <span className="visual-art-caption">VISUAL PLACEHOLDER · ASSETS TO BE ADDED</span>
+    </button>
+    <div className="visual-project-copy"><h3>{project.title}</h3><p>{project.description}</p>
+      <button className="visual-link" onClick={() => dialog.current.showModal()}>EXPLORE THE VISUALS ↗<span className="sr-only"> — {project.title}</span></button>
+    </div>
+    <dialog className="visual-dialog" ref={dialog} aria-labelledby={`visual-title-${index}`} onClick={event => { if (event.target === event.currentTarget) dialog.current.close(); }}>
+      <div className="visual-dialog-inner"><button className="outline-button" onClick={() => dialog.current.close()} autoFocus>CLOSE ×</button>
+        <p className="visual-kicker">{project.label}</p><h2 id={`visual-title-${index}`}>{project.title}</h2><p>{project.description}</p>
+        <div className={`visual-preview visual-${project.tone}`}><span>{project.title}</span><small>VISUAL ARCHIVE · ASSETS TO BE ADDED</small></div>
+        <p className="visual-pending">This is a preview space for the project’s visual work. The finished assets haven’t been added yet.</p>
+      </div>
+    </dialog>
+  </article>;
+}
 
 const communityLabels = ["COMMUNITY LEADERSHIP", "HACKATHONS", "MENTORING", "TECHNICAL SPEAKING", "WORKSHOPS"];
 
@@ -226,69 +263,40 @@ function Placeholder({ label, className = "" }) {
 
 function GraphicDesignPage() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    document.title = "Graphic Design — Reda Kaleem";
-  }, []);
-
+  useEffect(() => { document.title = "Design / Visuals — Reda Kaleem"; }, []);
   return (
     <div className="site-shell graphic-page">
       <header className="topbar">
         <a className="mini-mark" href="/" aria-label="Back to portfolio">RK</a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>MENU</button>
-        <nav className={menuOpen ? "is-open" : ""} aria-label="Graphic design navigation">
-          <a href="/">01 PORTFOLIO</a>
-          <a href="/#work">02 PRODUCT WORK</a>
-          <a href="/#research">03 RESEARCH</a>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-controls="visual-navigation">MENU</button>
+        <nav id="visual-navigation" className={menuOpen ? "is-open" : ""} aria-label="Design / Visuals navigation" onClick={() => setMenuOpen(false)}>
+          <a href="/">01 PORTFOLIO</a><a href="#visual-projects">02 VISUALS</a><a href="#visual-playground">03 PLAYGROUND</a>
         </nav>
-        <div className="header-end">
-          <div className="color-key" aria-hidden="true"><i /><i /><i /></div>
-          <a className="outline-button nav-cta" href="/#contact">LET&apos;S TALK ↗</a>
-        </div>
+        <div className="header-end"><div className="color-key" aria-hidden="true"><i /><i /><i /></div><a className="outline-button nav-cta" href="/#contact">LET&apos;S TALK ↗</a></div>
       </header>
-
       <main>
-        <section className="design-hero lined">
-          <span className="scribble design-note-one">TYPE, COLOR &amp; A LITTLE CHAOS</span>
-          <span className="scribble design-note-two">MADE BY HAND + MOUSE</span>
-          <div>
-            <p className="tiny-copy">A separate corner for visual work</p>
-            <h1>GRAPHIC<br />DESIGN</h1>
-            <p className="design-deck">Identity, typography, digital collage and interfaces—built with the same curiosity I bring to code.</p>
+        <section className="visual-hero lined" aria-labelledby="visual-heading">
+          <p className="visual-kicker">THE VISUAL SIDE OF HOW I BUILD</p>
+          <div className="visual-hero-layout"><h1 id="visual-heading">DESIGN<br /><span>THINKING</span><span className="visual-heading-dot" aria-hidden="true">*</span></h1>
+            <div className="visual-hero-aside"><div className="visual-sample" aria-hidden="true"><span>FORM + FUNCTION</span><b>Aa<span>↗</span></b><div><i /><i /><i /><i /></div><small>AN ENGINEER’S VISUAL NOTEBOOK / 01</small></div><span className="visual-hand">DESIGN IS PART<br />OF THE BUILD ↖</span></div>
+          </div>
+          <div className="visual-hero-bottom"><p>I’m primarily an engineer — but I care just as much about how an idea looks, feels and communicates as I do about how it works.</p><span className="visual-hand">TYPE · COLOR<br />HIERARCHY · SYSTEMS</span></div>
+        </section>
+        <section className="visual-intro lined"><span className="visual-kicker">WHY IS THIS EVEN<br />IN MY PORTFOLIO? ↘</span><p>Because for me, building doesn’t stop when the code works. I use typography, colour, composition, hierarchy and visual systems to shape how my projects are understood and experienced. Most of what you see here started because I needed something for one of my own products, brands or ideas — so I designed it myself.</p></section>
+        <section className="visual-principles lined" aria-labelledby="principles-heading"><p className="visual-kicker">01 / HOW I THINK ABOUT DESIGN</p><h2 id="principles-heading">I DON’T START WITH<br /><span>“MAKE IT PRETTY.”</span></h2><div className="visual-principle-grid">{designPrinciples.map(([title, copy], index) => <article key={title}><span className="visual-principle-number">0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
+        <section className="visual-projects lined" id="visual-projects" aria-labelledby="projects-heading"><div className="visual-section-heading"><div><p className="visual-kicker">02 / SELECTED VISUAL PROJECTS</p><h2 id="projects-heading">IDEAS, WITH<br />AN IDENTITY.</h2></div><span className="visual-hand">Different briefs.<br />Same curious brain. ↙</span></div><div className="visual-project-grid">{designProjects.map((project, index) => <VisualProject key={project.title} project={project} index={index} />)}</div></section>
+        <section className="visual-playground lined" id="visual-playground" aria-labelledby="playground-heading"><p className="visual-kicker">03 / NO BRIEF. NO CASE STUDY. JUST CURIOSITY.</p><div className="visual-section-heading"><h2 id="playground-heading">VISUAL<br />PLAYGROUND</h2><p>Posters, logo explorations, social graphics, unused directions, typography experiments and random ideas I wanted to see exist.</p></div>
+          <div className="visual-collage" aria-label="Visual experiments and spaces for future artwork">
+            <figure className="visual-experiment visual-type-study"><span>01 / TYPE STUDY</span><b>MAKE<br /><em>ROOM</em><br />FOR IDEAS.</b><figcaption>Typography experiment</figcaption></figure>
+            <figure className="visual-experiment visual-colour-study"><span>02 / COLOUR NOTES</span><div aria-hidden="true"><i /><i /><i /><i /></div><figcaption>A palette with a point of view.</figcaption></figure>
+            <figure className="visual-experiment visual-logo-study"><span>03 / MARK EXPLORATION</span><b aria-hidden="true">↗✳</b><figcaption>Shapes looking for a purpose.</figcaption></figure>
+            <figure className="visual-experiment visual-poster-slot"><span>04 / OPEN CANVAS</span><b>What if<br />we tried<br /><em>this?</em></b><figcaption>Space for the next experiment ↗</figcaption></figure>
+            <figure className="visual-experiment visual-layout-study"><span>05 / COMPOSITION</span><div aria-hidden="true"><i /><i /><i /></div><figcaption>Order. Then a little disruption.</figcaption></figure>
           </div>
         </section>
-
-        <section className="design-intro lined">
-          <span className="hand-note">SELECTED VISUAL WORK</span>
-          <p>I like design that feels clear without feeling sterile. These are explorations in bold type, useful systems and visuals with enough personality to stay in your head.</p>
-        </section>
-
-        <section className="design-gallery lined">
-          {designProjects.map((project, index) => (
-            <article className={`design-card ${project.tone}`} key={project.title}>
-              <div className="design-card-meta">
-                <span>0{index + 1}</span>
-                <span>{project.type}</span>
-              </div>
-              <Placeholder label={project.label} />
-              <h2>{project.title}</h2>
-            </article>
-          ))}
-        </section>
-
-        <section className="design-closing lined">
-          <p className="tiny-copy">THE ARCHIVE IS GROWING</p>
-          <h2>MORE SOON.</h2>
-          <p>Brand explorations, posters and process work will land here as the projects are documented.</p>
-          <a className="black-button button-link" href="/">BACK TO PORTFOLIO ←</a>
-        </section>
+        <section className="visual-closing lined"><p className="visual-kicker">ENGINEERING × DESIGN</p><h2>I LIKE<br /><span>BOTH SIDES.</span></h2><p>Some ideas need Python. Some need typography. Most of the things I enjoy building need a little of both.</p><a className="black-button button-link" href="/">BACK TO THE THINGS I BUILD ←</a><span className="visual-hand">code + composition ♥</span></section>
       </main>
-
-      <footer>
-        <span>© 2026 REDA KALEEM</span>
-        <span>DESIGNED WITH INTENTION · BUILT WITH CODE</span>
-        <a href="/">PORTFOLIO ↑</a>
-      </footer>
+      <footer><span>© 2026 REDA KALEEM</span><span>DESIGNED WITH INTENTION · BUILT WITH CODE</span><a href="/">PORTFOLIO ↑</a></footer>
     </div>
   );
 }
@@ -342,7 +350,7 @@ function HomePage() {
           <button onClick={() => jump("about")}>02 ABOUT</button>
           <button onClick={() => jump("work")}>03 WORK</button>
           <button onClick={() => jump("research")}>04 RESEARCH</button>
-          <a href="/graphic-design.html">05 GRAPHIC DESIGN ↗</a>
+          <a href="/graphic-design.html">05 DESIGN / VISUALS ↗</a>
         </nav>
         <div className="header-end">
           <div className="color-key" aria-hidden="true"><i /><i /><i /></div>
@@ -568,7 +576,8 @@ function HomePage() {
             <button className="black-button" onClick={copyEmail}>{sent ? "EMAIL COPIED!" : "COPY MY EMAIL"}</button>
             <div className="social-links">
               <a href="https://github.com/redakaleem" target="_blank" rel="noreferrer">GITHUB ↗</a>
-              <a href="/assets/Resume.pdf" target="_blank" rel="noreferrer">RÉSUMÉ ↗</a>
+              <a href="/assets/Reda%20Kaleem%20Resume.pdf" target="_blank" rel="noreferrer">RÉSUMÉ ↗</a>
+              <a href="/assets/Reda%20Kaleem%20CV.pdf" target="_blank" rel="noreferrer">CV ↗</a>
             </div>
           </div>
         </section>
